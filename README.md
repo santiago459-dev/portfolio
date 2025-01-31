@@ -96,3 +96,10 @@ Feel free to check [our documentation](https://docs.astro.build) or jump into ou
 **Inspiracion de Diseño**
 
 - [Pinterest link](https://co.pinterest.com/pin/655696027034988544/)
+
+**Estilos**
+
+- _border radius_: rounded-xl
+- _Fuentes_
+- _font size_:
+  - titulo
