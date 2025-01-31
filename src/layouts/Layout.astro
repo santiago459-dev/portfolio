@@ -3,6 +3,7 @@ import '@fontsource/inter';
 import "../styles/global.css"
 
 import { Icon } from 'astro-icon/components'
+import ButtonAside from "../components/button-aside.astro"
 
 const { title } = Astro.props;
 ---
@@ -21,7 +22,7 @@ const { title } = Astro.props;
       <button>Information</button>
     </header>
 
-    <main class="flex  justify-center gap-5 w-full h-fit min-h-96 ">
+    <main class="flex  justify-center gap-5 w-full h-fit min-h-96">
       <aside class="flex items-center flex-col gap-4  h-fit pb-5 px-10 rounded-xl bg-white">
           <figure class="relative h-30 w-60 mb-2">
             <img src="" alt="" class="absolute -top-30 w-60 h-60 rounded-xl border-2 border-gray-600">
@@ -31,8 +32,8 @@ const { title } = Astro.props;
             <h1 class="name text-2xl tracking-wide">Juan Santiago</h1>
             <h2 class="font-sans sub-title text-xs px-2 py-1 mb-2 rounded-lg bg-gray-100 text-gray-600">Fullstack developer</h2>
             <div class="flex justify-center gap-2 w-full">
-              <Icon class="w-6 h-6" name="github" />
-              <Icon class="w-6 h-6" name="linkedin" />
+              <Icon class="w-6 h-6" name="logos/github" />
+              <Icon class="w-6 h-6" name="logos/linkedin" />
             </div>
           </section>
 
@@ -44,13 +45,14 @@ const { title } = Astro.props;
         <slot />
       </article>
 
-      <nav class="w-32 h-full rounded-xl bg-white">
+      <nav class="flex flex-col gap-3 w-fit h-fit p-5 rounded-xl bg-white">
+        <ButtonAside icon="about" text="Acerca de mi"  />
+        <ButtonAside icon="resume" text="Resumen"  />
+        <ButtonAside icon="projects" text="Proyectos"  />
+        <ButtonAside icon="contact" text="Contactame"  />
       </nav>
     </main>
 
-    <footer class="w-full h-30 bg-red-900">
-      
-    </footer>
 	</body>
 </html>
 
@@ -61,7 +63,7 @@ const { title } = Astro.props;
     align-items: center;
     gap: 15rem;
     width: 100%;
-    height: 100vh;
+    height: fit;
     padding: 4rem 9rem;
     background-color: rgb(230,230,230);
     overflow-y: auto;
