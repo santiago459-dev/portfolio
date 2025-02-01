@@ -8,16 +8,16 @@ const webProjects = [
 ]
 
 const scripts = [
-  {title:"Canciones random", paragraph:"Desarrollé este script para automatizar la selección aleatoria de canciones desde un directorio, eliminando la tarea tediosa de elegirlas manualmente.", stack:["skills/languages/bash"]},
-  {title:"Canciones random", paragraph:"Desarrollé este script para automatizar la selección aleatoria de canciones desde un directorio, eliminando la tarea tediosa de elegirlas manualmente.", stack:["skills/languages/bash"]},
-  {title:"Montar particiones", paragraph:"Este script fue creado al migrar a Arch Linux, debido a que las particiones no se montaban automáticamente, lo que me impulsó a experimentar con una solución.", stack:["skills/languages/bash"]},
-  {title:"Volumen formateado", paragraph:"Este script permite obtener el volumen del sistema en un formato compatible con la barra de Qtile.", stack:["skills/languages/bash"]},
+  {title:"Canciones random", paragraph:"Desarrollé este script para automatizar la selección aleatoria de canciones desde un directorio, eliminando la tarea tediosa de elegirlas manualmente.", stack:["skills/languages/bash"], link:"https://github.com/santiago459-dev/bash-scripts/blob/main/src/random-songs"},
+  {title:"Liberar espacio", paragraph:"Creé este script para automatizar la limpieza del sistema, eliminando archivos innecesarios como logs antiguos y cachés.", stack:["skills/languages/bash"], link:"https://github.com/santiago459-dev/bash-scripts/blob/main/src/free-up-space"},
+  {title:"Montar particiones", paragraph:"Este script fue creado al migrar a Arch Linux, debido a que las particiones no se montaban automáticamente, lo que me impulsó a experimentar con una solución.", stack:["skills/languages/bash"], link:"https://github.com/santiago459-dev/bash-scripts/blob/main/src/mount"},
+  {title:"Volumen formateado", paragraph:"Este script permite obtener el volumen del sistema en un formato compatible con la barra de Qtile.", stack:["skills/languages/bash"], link:"https://github.com/santiago459-dev/bash-scripts/blob/main/src/get-volumen"},
 ]
 ---
 
 <Layout titlePage="Portafolio">
     <header class="flex flex-col gap-5">
-      <Title title="Portafolio"  style="text-4xl border-b-4 border-orange-300 pb-4"/>
+      <Title title="Portafolio"  style="text-4xl border-b-4 border-green-300 pb-4"/>
       <p class="paragraph">Aquí encontrarás algunos de mis proyectos en desarrollo. Aunque aún pueden tener errores o mejoras pendientes, cada uno representa un paso en mi crecimiento como desarrollador.</p>
     </header>
 
@@ -28,7 +28,7 @@ const scripts = [
         </div>
         <Title title="Scripts" style="text-2xl" />
         <div class="flex flex-wrap gap-5 w-full h-fit">
-          {scripts.map(index => <ProjectCard styleCard="border-orange-200" frontPage={index.image} title={index.title} paragraph={index.paragraph} stack={index.stack}/>) }
+          {scripts.map(index => <ProjectCard styleCard="border-orange-200" frontPage={index.image} title={index.title} paragraph={index.paragraph} stack={index.stack} link={index.link}/>) }
         </div>
     </section>
 </Layout>
