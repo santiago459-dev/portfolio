@@ -1,20 +1,27 @@
 ---
-import '@fontsource/inter';
+import '@fontsource/nunito';
+import '@fontsource/poppins';
+import '@fontsource/montserrat';
+import '@fontsource/roboto-mono';
+import '@fontsource/space-grotesk';
+import '@fontsource/jetbrains-mono';
+
 import "../styles/global.css"
 
 import { Icon } from 'astro-icon/components'
-import ButtonAside from "../components/button-aside.astro"
 
-const { title } = Astro.props;
+import ButtonAside from "../components/button-aside.astro"
+import InformationAside from "../components/information-aside.astro"
+
+const { titlePage } = Astro.props;
 ---
 
-<!doctype html>
-<html lang="en">
+<!doctype html> <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-    <title>{title}</title>
+    <title>{titlePage}</title>
 	</head>
 	<body>
     <header class="flex justify-between w-full">
@@ -23,7 +30,7 @@ const { title } = Astro.props;
     </header>
 
     <main class="flex  justify-center gap-5 w-full h-fit min-h-96">
-      <aside class="flex items-center flex-col gap-4  h-fit pb-5 px-10 rounded-xl bg-white">
+      <aside class="flex items-center flex-col gap-5  h-fit pb-5 px-10 rounded-xl bg-white">
           <figure class="relative h-30 w-60 mb-2">
             <img src="" alt="" class="absolute -top-30 w-60 h-60 rounded-xl border-2 border-gray-600">
           </figure>
@@ -37,22 +44,26 @@ const { title } = Astro.props;
             </div>
           </section>
 
-          <article class="w-full h-96 bg-gray-200 rounded-xl">
+          <article class="flex flex-col gap-5 w-full h-fit p-3 bg-gray-200 rounded-xl">
+            <InformationAside iconColor="text-slate-400" icon="aside/phone" upperText="Numero telefonico" downText="+57 3235162753"/>
+            <InformationAside iconColor="text-red-400" icon="aside/email" upperText="Gmail" downText="sssantiago459@gmail.com"/>
+            <InformationAside iconColor="text-violet-400" icon="aside/birthdate" upperText="Fecha de nacimiento" downText="2007/10/16"/>
           </article>
       </aside>
 
-      <article class="flex-grow-2 h-full rounded-xl bg-white">
+      <article class="flex flex-col gap-5 flex-grow-2 h-fit p-5 rounded-xl bg-white">
         <slot />
       </article>
 
-      <nav class="flex flex-col gap-3 w-fit h-fit p-5 rounded-xl bg-white">
-        <ButtonAside icon="about" text="Acerca de mi"  />
-        <ButtonAside icon="resume" text="Resumen"  />
-        <ButtonAside icon="projects" text="Proyectos"  />
-        <ButtonAside icon="contact" text="Contactame"  />
+      <nav class="w-fit h-fit p-5 rounded-xl bg-white">
+        <ul class="flex flex-col gap-3">
+          <ButtonAside link="/" icon="nav/about" text="Acerca de mi"  />
+          <ButtonAside link="/resume" icon="nav/resume" text="Resumen"  />
+          <ButtonAside link="/projects" icon="nav/projects" text="Proyectos"  />
+          <ButtonAside link="/contact" icon="nav/contact" text="Contactame"  />
+        </ul>
       </nav>
     </main>
-
 	</body>
 </html>
 
@@ -72,5 +83,9 @@ const { title } = Astro.props;
 
   .name {
     font-family: 'Inter', sans-serif;
+  }
+
+  .main-title{
+    font-family: 'Poppins', sans-serif;
   }
 </style>

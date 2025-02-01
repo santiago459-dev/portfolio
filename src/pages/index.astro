@@ -1,10 +1,129 @@
 ---
+import Card from "../components/card.astro";
+import Title from "../components/title.astro";
 import Layout from '../layouts/Layout.astro';
+import LineTime from "../components/timelineSection.astro";
 
+const timelineInformation = [
+  {
+    "date": "2018",
+    "title": "Primeros pasos y descubrimientos",
+    "paragraph": "Comencé a interesarme en la electrónica y la codificación a los 11 años, desarmando dispositivos y viendo videos. Mi primer contacto con la programación fue a través de Game Maker Language (GML), con el que desarrollé mi primer videojuego siguiendo tutoriales.",
+    "icon": "timeline/book"
+  },
+  {
+    "date": "2020",
+    "title": "Bases de la programación",
+    "paragraph": "Retomé la programación, esta vez decidido a aprender las bases. Una vez aprendido las bases, desarrollé un videojuego por completo, sin tutoriales. A lo largo del año, continué aprendiendo, aunque sin hacer proyectos grandes.",
+    "icon": "timeline/codeBraces"
+  },
+  {
+    "date": "2021",
+    "title": "Transición a Unity y C#",
+    "paragraph": "Migré a Unity y comencé a aprender C#. Este año fue desafiante, ya que profundicé en conceptos como paradigmas de programación. Desarrollé un segundo videojuego más simple pero que me permitió conocer mejor el proceso de desarrollo.",
+    "icon": "timeline/unity"
+  },
+  {
+    "date": "2022",
+    "title": "Introducción al desarrollo web",
+    "paragraph": "Dejé de programar por clases, pero me mantuve interesado en la programación, explorando el desarrollo web. Comencé con HTML, pero no profundicé mucho en ese año.",
+    "icon": "timeline/html"
+  },
+  {
+    "date": "2023",
+    "title": "Aprendizaje intensivo en frontend y backend",
+    "paragraph": "En 2023, me sumergí profundamente en el desarrollo web, retomando HTML, CSS y JavaScript. Desarrollé mini proyectos y perfeccioné mis habilidades con estos lenguajes. También comencé a aprender backend, lo que me permitió comprender mejor cómo funcionan los servidores y ampliar las capacidades de mis proyectos web. A medida que avanzaba, trabajé con React y Tailwind, desarrollando más proyectos y explorando conceptos más complejos del desarrollo web.",
+    "icon": "timeline/web"
+  },
+  {
+    "date": "2024",
+    "title": "Profundización en informática y expansión de conocimientos",
+    "paragraph": "En 2024, comencé a profundizar en temas generales de informática, como la historia de la computación, los lenguajes de máquina, los sistemas operativos, las redes etc..., leyendo libros como Nand2Tetris u otros. Esta base de conocimientos me ayudó a tomar decisiones más informadas sobre las herramientas y tecnologías que uso. A finales de este año, decidí instalar Arch Linux para poner a prueba mis conocimientos sobre sistemas operativos y así tener control total sobre los programas instalados, lo que me permitiría mejorar mi productividad. Aunque la instalación fue semi compleja, logré completarla con éxito.",
+    "icon": "timeline/chip"
+  },
+  {
+    "date": "2025",
+    "title": "Profesionalización y nuevas oportunidades",
+    "paragraph": "Al terminar el colegio, tuve más tiempo para personalizar mi entorno en Arch Linux, optimizando mi flujo de trabajo y adaptándolo a mis necesidades. y ahora, continuo profundizando y desarrollando software y paginas web, con el objetivo de mejorar mis oportunidades laborales en el futuro",
+    "icon": "timeline/briefcase"
+  }
+]
+
+const whatIDo = [
+  {
+    style:"bg-orange-100",
+    icon:"card/monitor",
+    title:"Frontend",
+    paragraph:"Diseño y desarrollo interfaces web atractivas, responsivas y optimizadas con HTML, CSS, JavaScript,Tailwind, React, Astro y demas herramientas."
+  },
+  {
+    style:"bg-blue-100",
+    icon:"card/server",
+    title:"Backend",
+    paragraph:"Construyo APIs y sistemas eficientes con Node.js, Express y bases de datos SQL, priorizando escalabilidad y rendimiento."
+  },
+  {
+    style:"bg-green-100",
+    icon:"card/script",
+    title:"Automatización",
+    paragraph:"Automatizo tareas y optimizo flujos de trabajo con Bash y Node.js, mejorando eficiencia y reduciendo procesos manuales."
+  },
+]
+ 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
-<Layout>
+<Layout titlePage="Acerca de mi" >
+  <article class="flex flex-col gap-5">   
+    <Title title="Acerca de mi"  style="text-4xl border-b-4 border-gray-700 pb-4"/>
+    <p class="about-p">Siempre he sido un apasionado del <strong>desarrollo</strong> y la <strong>tecnología</strong>. Me encanta crear soluciones <em>eficientes</em> y <em>minimalistas</em>, enfocándome tanto en la funcionalidad como en la estética. Con experiencia en el campo del desarrollo <strong>FULLSTACK</strong>, actualmente estoy explorando lenguajes y herramientas que me permitan optimizar el rendimiento y la velocidad de los sitios web modernos.</p>
+    <p class="about-p">Disfruto aprendiendo nuevas tecnologías y optimizando mis proyectos para que sean <em>ligeros</em>, <em>accesibles</em> y <em>bien estructurados</em>. Además, me interesa la personalización de entornos <strong>Linux</strong>, especialmente con <strong>Arch</strong> y <strong>Qtile</strong>, para mejorar mi productividad. Siempre busco perfeccionar mis habilidades y afrontar nuevos desafíos.</p>
+  </article>
+  <section class="flex flex-col gap-5">
+    <Title title="¿Que hago?" style="text-3xl"/>
+    <div class="flex gap-5">
+      {whatIDo.map((index)=> <Card icon={index.icon} title={index.title} paragraph={index.paragraph} style={index.style} />)}
+    </div>
+  </section>
+  <section class="flex flex-col gap-3 w-full h-fit">
+    <Title style="text-3xl" title="Trayectoria" />
+    <div class="flex flex-col items-center w-full h-fit">
+      <span class="frist-circle"></span>
+      {timelineInformation.map((index)=> <LineTime date={index.date} title={index.title} paragraph={index.paragraph} icon={index.icon} />)}
+      <span class="circle"></span>
+    </div>
+  </section>
+
   
 </Layout>
+
+<style>
+  .roboto-font{
+    font-family: 'Roboto Mono', monospace;
+  }
+  .about-p{
+     font-family: 'Nunito', sans-serif;
+  }
+
+  .frist-circle{
+    position: relative;
+    width: 40px;
+    height: 40px;
+    margin-top:5px;
+    margin-bottom:5px;
+    border-radius: 100%;
+    background-color: lightsalmon;
+  }
+
+  .circle{
+    position: relative;
+    width: 15px;
+    height: 15px;
+    margin-top:5px;
+    margin-bottom:5px;
+    border-radius: 100%;
+    background-color: lightsalmon;
+  }
+
+</style>

@@ -1,0 +1,50 @@
+---
+import { Icon } from 'astro-icon/components'
+import TimelineDivisor from "./timelineDivisor.astro"
+
+const {date, title, paragraph, icon} = Astro.props
+---
+
+<div class="flex flex-row justify-between w-full h-96 linetime">
+
+  <section class="flex flex-row items-center justify-end w-full gap-1 p-10  icon-section">
+    <div class="flex items-center justify-center w-25 h-25 p-2 rounded-full border-4 border-gray-700">
+      <Icon name={icon} class="w-full h-full text-gray-700"/>
+    </div>
+    <span class="w-40 h-1 bg-gray-600 icon-orden-span"></span>
+  </section>
+
+  <TimelineDivisor/>
+
+  <section class="flex flex-col items-center justify-center w-full gap-5 p-10">
+    <div class="flex w-full items-center gap-4">
+      <span class="date-number text-5xl text-gray-700 border-r-4 pr-4 border-gray-700">{date}</span>
+      <h2 class="title-line text-lg text-pretty">{title}</h2>
+    </div>
+    <p class="w-full line-paragraph">{paragraph}</p>
+  </section>
+
+</div>
+
+<style>
+
+  .linetime:nth-child(odd) > .icon-section {
+    flex-direction: row-reverse;
+  }
+
+
+  .linetime:nth-child(odd){
+    flex-direction: row-reverse;
+  }
+  .date-number{
+    font-family: 'Space Grotesk', sans-serif;
+  }
+  .title-line{
+    font-family: 'Montserrat', sans-serif;
+  }
+  .line-paragraph{
+     font-family: 'Nunito', sans-serif;
+  }
+</style>
+
+
