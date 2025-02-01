@@ -1,5 +1,6 @@
 ---
 import { Icon } from 'astro-icon/components'
+
 import Title from "./title.astro"
 
 
@@ -7,9 +8,11 @@ const {icon, title, paragraph, style} = Astro.props
 ---
 
 <article class=`${style} flex w-full gap-2  p-4 h-content  rounded-lg `>
-  <div class="w-20 h-full "> 
-    <Icon name={icon} class="text-5xl"/>
-  </div>
+  {icon && 
+    <div class="w-20 h-full "> 
+      <Icon name={icon} class="text-5xl"/>
+    </div>
+  }
 
   <div class="flex flex-col content-start flex-grow h-full "> 
     <Title title={title} style="text-gray-900 text-2xl font-medium"/>
