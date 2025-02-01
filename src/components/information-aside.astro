@@ -1,0 +1,24 @@
+---
+import { Icon } from 'astro-icon/components'
+
+const {iconColor, upperTextColor, icon, upperText, downText} = Astro.props
+---
+
+
+<li class=`flex items-center gap-2 w-full`>
+  <Icon class=`${iconColor} w-10 h-10 p-1 rounded-lg bg-white` name={icon}/>
+  <div class="flex flex-col justify-center -gap-4">
+    <h3 class=`${upperTextColor} upper-text text-xs`>{upperText}</h3>
+    <span class=`down-text text-sm text-gray-700`>{downText}</span>
+  </div>
+</li>
+
+<style>
+  .upper-text {
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  .down-text{
+    font-family: 'JetBrains Mono', sans-serif;
+  }
+</style>
