@@ -1,10 +1,102 @@
 ---
+ 
 import Layout from '../layouts/Layout.astro';
+import Title from "../components/title.astro"
+import ResumeCard from "../components/resumeCardList.astro"
+import SkillSection from "../components/skillSection.astro"
+import Tag from "../components/tag.astro"
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const educationsCard = [
+  {style:"bg-amber-50 h-35",title:"Aprendizaje Autodidacta", paragraph:"He desarrollado habilidades en desarrollo web y software a través de libros, documentación oficial y proyectos prácticos. "},
+  {style:"bg-yellow-100 h-35",title:"Cursos y Recursos Online", paragraph:"He aprendido de plataformas, videos y comunidades, fortaleciendo mis conocimientos en tecnologías web, Linux, programación y sistemas operativos."},
+];
+
+const experiencieCard = [
+  {style:"bg-teal-100 h-35",title:"Proyectos Personales",paragraph:"He desarrollado aplicaciones web, scripts y herramientas automatizadas para resolver problemas reales y mejorar mi productividad."},
+  {style:"bg-rose-50 h-35",title:"Desarrollo en el Colegio",paragraph:"Desarrollé scripts para automatizar tareas repetitivas de algunos profesores, optimizando su tiempo y facilitando la gestión de actividades académicas."},
+  {style:"bg-orange-200 h-35",title:"Emprendimiento y Gestión",paragraph:"Inicié el desarrollo de un sistema web para la gestión de productos y ventas del colegio, pero el proyecto quedó inconcluso por factores externos."},
+];
+
+const skillsList = [
+  {
+    title:"Lenguages", 
+    skill:[
+      {name:"HTML",icon:"skills/languages/html", percentage:"100%"},
+      {name:"CSS", icon:"skills/languages/css", percentage:"95%"},
+      {name:"JS", icon:"skills/languages/js", percentage:"95%"},
+      {name:"BASH", icon:"skills/languages/bash", percentage:"80%"},
+      {name:"SQL", icon:"skills/languages/sql", percentage:"60%"},
+    ]
+  },
+  {
+    title:"Frameworks/Librerias", 
+    skill:[
+      {name:"TAILWIND",icon:"skills/extras/tailwind", percentage:"95%"},
+      {name:"REACT",icon:"skills/extras/react", percentage:"75%"},
+      {name:"ASTRO",icon:"skills/extras/astro", percentage:"80%"},
+      {name:"NODEJS",icon:"skills/extras/nodejs", percentage:"80%"},
+      {name:"EXPRESS",icon:"skills/extras/express", percentage:"85%"},
+    ]
+  },
+  {
+    title:"Herramientas", 
+    skill:[
+      {name:"GIT",icon:"skills/tools/git", percentage:"50%"},
+      {name:"MYSQL",icon:"skills/tools/mysqlworkbrench", percentage:"50%"},
+      {name:"SQLITE",icon:"skills/tools/sqlite", percentage:"65%"},
+      {name:"NVIM",icon:"skills/tools/nvim", percentage:"97%"}
+    ]
+  },
+  {
+    title:"Sistema Operativos", 
+    skill:[
+      {name:"ARCH",icon:"skills/os/arch", percentage:"98%"},
+      {name:"UBUNTU",icon:"skills/os/ubuntu", percentage:"100%"},
+      {name:"WINDOWS",icon:"skills/os/windows", percentage:"60%"},
+    ]
+  },
+]
+
+const knowledge = [
+  { style: "bg-amber-50 text-amber-900", tag: "Desarrollo Web" },
+  { style: "bg-amber-100 text-amber-900", tag: "Fundamentos de la Programación" },
+  { style: "bg-yellow-100 text-yellow-900", tag: "Paradigmas de Programación" },
+  { style: "bg-orange-100 text-orange-900", tag: "Patrones de Diseño de Software" },
+  { style: "bg-stone-100 text-stone-900", tag: "Estructura y Organización de Proyectos" },
+  { style: "bg-amber-200 text-amber-900", tag: "Desarrollo Backend" },
+  { style: "bg-orange-200 text-orange-900", tag: "Desarrollo Frontend" },
+  { style: "bg-yellow-200 text-yellow-900", tag: "Bases de Datos" },
+  { style: "bg-stone-200 text-stone-900", tag: "Control de Versiones y Git" },
+  { style: "bg-rose-100 text-rose-900", tag: "Principios de UX/UI" },
+  { style: "bg-emerald-100 text-emerald-900", tag: "Sistemas Operativos y Administración" },
+  { style: "bg-teal-100 text-teal-900", tag: "Metodologías de Desarrollo" },
+  { style: "bg-indigo-100 text-indigo-900", tag: "Redes y Seguridad Informática" },
+];
+
 ---
 
-<Layout>
+<Layout titlePage="Resumen" >
+  <article class="flex flex-col gap-5 w-full h-fit">
+    <Title title="Resumen"  style="text-4xl border-b-4 border-blue-300 pb-4"/>
+    <section class="flex gap-5 w-full h-full">
+      <ResumeCard icon="resumen/education" title="Educacion" cardList={educationsCard} />
+      <ResumeCard icon="resumen/experiencie" title="Experiencia" cardList={experiencieCard} />
+    </section>
+  </article>
   
+  <article class="flex gap-5 w-full h-fit">
+    <section class="flex flex-col gap-5 w-full h-fit">
+      <Title title="Habilidades"  style="text-3xl"/>
+      <div class="flex flex-col w-full">
+        {skillsList.map((index)=> <SkillSection title={index.title} skills={index.skill}/>)}
+      </div>
+    </section>
+
+    <section class="flex flex-col gap-5 w-full h-fit">
+      <Title title="conocimientos"  style="text-3xl"/>
+      <div class="w-full h-full flex  flex-wrap content-start gap-2 w-full">
+        {knowledge.map((index)=> <Tag text={index.tag} style={index.style}/>)}
+      </div>
+    </section>
+  </article>
 </Layout>

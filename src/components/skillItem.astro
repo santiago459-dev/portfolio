@@ -1,0 +1,26 @@
+---
+import { Icon } from 'astro-icon/components'
+
+const {name, icon, percentage}  = Astro.props
+---
+
+<div class="relative flex items-center justify-center w-20 h-20 p-2 rounded-lg bg-steal-200 skill-item">
+
+  <section class="absolute bottom-full opacity-0 flex items-center w-50 h-5  mb-1 rounded-sm border-4 border-gray-600 bg-white skill-info transition-all duration-100">
+    <span class="absolute flex items-center justify-center text-xs right-full h-5 px-1 rounded-l-sm  bg-gray-600 text-white ">{name}</span>
+    <span class="absolute flex items-center justify-center left-full text-xs w-10 h-5 rounded-r-sm bg-gray-600 text-white">{percentage}</span>
+    <span style=`width:${percentage}` class="total h-full bg-orange-300 "><span>
+  </section>
+
+  <Icon name={icon} class="w-14 h-14"/>
+</div>
+
+<style>
+  .total{
+    width: 0px;
+  }
+  .skill-item:hover > .skill-info{ 
+    opacity: 1;
+  }
+  
+</style>

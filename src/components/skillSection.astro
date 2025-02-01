@@ -1,0 +1,13 @@
+---
+import Title from "./title.astro"
+import SkillItem from "./skillItem.astro"
+
+const {title, skills} = Astro.props
+---
+
+<div class="flex flex-col gap-2 w-full h-fit">
+  <Title title={title} style="font-medium"/>
+  <div class="flex flex-wrap content-start gap-2">
+    {skills.map((index)=> <SkillItem name={index.name} icon={index.icon} percentage={index.percentage}/> )}
+  </div>
+<div/>

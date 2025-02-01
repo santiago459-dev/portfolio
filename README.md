@@ -103,3 +103,35 @@ Feel free to check [our documentation](https://docs.astro.build) or jump into ou
 - _Fuentes_
 - _font size_:
   - titulo
+
+# Herramientas que utilizo
+
+## Lenguages
+
+1. html
+2. css
+3. js
+4. bash
+5. sql
+
+## Herramientas
+
+1. Tailwind
+2. react
+3. Astro
+4. Nodejs
+5. Expressjs
+6. nodemailer
+7. ejs
+
+## Herrmientas
+
+1. Git
+2. MySqlWorkbrech
+3. vim|Nvim
+
+## OS
+
+1. Arch linux
+2. Ubuntu
+3. Windows 11
