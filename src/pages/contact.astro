@@ -1,10 +1,86 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Title from "../components/title.astro"
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
-
 <Layout>
-  
+  <Title title="Contactame"  style="text-4xl border-b-4 border-rose-300 pb-4"/>
+  <form  class="formulario bg-gray-50 text-gray-900">
+    <label>
+      Nombre:
+      <input type="text" name="name" required  class="bg-gray-200"/>
+    </label>
+
+    <label>
+      Correo Electrónico:
+      <input type="email" name="email" required class="bg-gray-200"/>
+    </label>
+
+    <label>
+      Mensaje:
+      <textarea name="message" required class="bg-gray-200"></textarea>
+    </label>
+
+    <input type="submit" name="enviar" value="Enviar" id="" class="bg-blue-300 active:bg-blue-400 cursor-pointer">
+  </form>
 </Layout>
+
+<script>
+import emailjs from '@emailjs/browser';
+
+const form = document.querySelector(".formulario")
+
+form?.addEventListener('submit', (e)=>{
+  e.preventDefault()
+  
+  const formData = new FormData(e.target);
+  const name = formData.get("name");
+  const email = formData.get("email");
+  const message = formData.get("message");
+  
+  const templateParams = {
+    namepo :name,
+    emailpo:email,
+    messagepo:message
+  };
+
+  emailjs.send('service_317pqop', 'template_3j4vlvj', templateParams, { publicKey: 'GeELFdkPtYpwauTrX', })
+  .then( (response) => {
+      console.log('SUCCESS!', response.status, response.text);
+      console.log(response)
+    }, (err) => {
+      console.log('FAILED...', err);
+    },
+  );
+
+})
+</script>
+
+<style>
+  .formulario {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 400px;
+    margin: auto;
+    padding: 20px;
+    border-radius: 10px;
+  }
+  input, textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+  }
+  button {
+    padding: 10px;
+    border: none;
+    background: #007bff;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  button:hover {
+    background: #0056b3;
+  }
+</style>

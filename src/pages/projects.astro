@@ -1,19 +1,35 @@
 ---
-import Title from "../components/title.astro";
 import Layout from '../layouts/Layout.astro';
+import Title from "../components/title.astro";
+import ProjectCard from "../components/projectsCard.astro"
 
+const webProjects = [
+  {image:"../../global/emprendimiento.png", title:"Emprendimiento", paragraph:"El proyecto nació de una idea propuesta por mi profesora, quien me motivó a planificarlo. Sin embargo, debido a las intensivas clases, fue quedando en pausa gradualmente.", stack:["skills/languages/html", "skills/languages/css", "skills/languages/js"]}
+]
+
+const scripts = [
+  {title:"Canciones random", paragraph:"Desarrollé este script para automatizar la selección aleatoria de canciones desde un directorio, eliminando la tarea tediosa de elegirlas manualmente.", stack:["skills/languages/bash"]},
+  {title:"Canciones random", paragraph:"Desarrollé este script para automatizar la selección aleatoria de canciones desde un directorio, eliminando la tarea tediosa de elegirlas manualmente.", stack:["skills/languages/bash"]},
+  {title:"Montar particiones", paragraph:"Este script fue creado al migrar a Arch Linux, debido a que las particiones no se montaban automáticamente, lo que me impulsó a experimentar con una solución.", stack:["skills/languages/bash"]},
+  {title:"Volumen formateado", paragraph:"Este script permite obtener el volumen del sistema en un formato compatible con la barra de Qtile.", stack:["skills/languages/bash"]},
+]
 ---
 
 <Layout titlePage="Portafolio">
     <header class="flex flex-col gap-5">
       <Title title="Portafolio"  style="text-4xl border-b-4 border-orange-300 pb-4"/>
       <p class="paragraph">Aquí encontrarás algunos de mis proyectos en desarrollo. Aunque aún pueden tener errores o mejoras pendientes, cada uno representa un paso en mi crecimiento como desarrollador.</p>
-
     </header>
 
-
-    <section class="w-full h-fit">
+    <section class="flex flex-col gap-5 b w-full h-fit">
         <Title title="Proyectos Web" style="text-2xl" />
+        <div class="flex w-full h-fit">
+          {webProjects.map(index => <ProjectCard styleCard="border-blue-200" frontPage={index.image} title={index.title} paragraph={index.paragraph} stack={index.stack}/>) }
+        </div>
+        <Title title="Scripts" style="text-2xl" />
+        <div class="flex flex-wrap gap-5 w-full h-fit">
+          {scripts.map(index => <ProjectCard styleCard="border-orange-200" frontPage={index.image} title={index.title} paragraph={index.paragraph} stack={index.stack}/>) }
+        </div>
     </section>
 </Layout>
 
