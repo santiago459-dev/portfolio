@@ -42,9 +42,10 @@ const skillsList = [
     title:"Herramientas", 
     skill:[
       {name:"GIT",icon:"skills/tools/git", percentage:"50%"},
+      {name:"NVIM",icon:"skills/tools/nvim", percentage:"97%"},
+      {name:"MARKDOWN",icon:"skills/tools/markdown", percentage:"100%"},
       {name:"MYSQL",icon:"skills/tools/mysqlworkbrench", percentage:"50%"},
-      {name:"SQLITE",icon:"skills/tools/sqlite", percentage:"65%"},
-      {name:"NVIM",icon:"skills/tools/nvim", percentage:"97%"}
+      {name:"SQLITE",icon:"skills/tools/sqlite", percentage:"85%"},
     ]
   },
   {
@@ -76,13 +77,12 @@ const knowledge = [
 ---
 
 <Layout titlePage="Resumen" >
-  <article class="flex flex-col gap-5 w-full h-fit">
-    <Title title="Resumen"  style="text-4xl border-b-4 border-blue-300 pb-4"/>
-    <section class="flex gap-5 w-full h-full">
-      <ResumeCard icon="resumen/education" title="Educacion" cardList={educationsCard} />
-      <ResumeCard icon="resumen/experiencie" title="Experiencia" cardList={experiencieCard} />
-    </section>
-  </article>
+  <Title title="Resumen"  style="text-4xl border-b-4 border-blue-300 pb-4"/>
+
+  <section class="flex gap-5 w-full h-full">
+    <ResumeCard icon="resumen/education" title="Educacion" cardList={educationsCard} />
+    <ResumeCard icon="resumen/experiencie" title="Experiencia" cardList={experiencieCard} />
+  </section>
   
   <article class="flex gap-5 w-full h-fit">
     <section class="flex flex-col gap-5 w-full h-fit">

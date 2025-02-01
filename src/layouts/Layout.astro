@@ -14,7 +14,9 @@ import ButtonAside from "../components/button-aside.astro"
 import InformationAside from "../components/information-aside.astro"
 
 const { titlePage } = Astro.props;
+const currentPath =  Astro.url.pathname
 ---
+
 
 <!doctype html> <html lang="en">
 	<head>
@@ -57,15 +59,16 @@ const { titlePage } = Astro.props;
 
       <nav class="w-fit h-fit p-5 rounded-xl bg-white">
         <ul class="flex flex-col gap-3">
-          <ButtonAside link="/" icon="nav/about" text="Acerca de mi"  />
-          <ButtonAside link="/resume" icon="nav/resume" text="Resumen"  />
-          <ButtonAside link="/projects" icon="nav/projects" text="Proyectos"  />
-          <ButtonAside link="/contact" icon="nav/contact" text="Contactame"  />
+          <ButtonAside style={currentPath === "/" ? "bg-orange-300" : ""} link="/" icon="nav/about" text="Acerca de mi"  />
+          <ButtonAside style={currentPath === "/resume" ? "bg-orange-300" : ""} link="/" link="/resume" icon="nav/resume" text="Resumen"  />
+          <ButtonAside style={currentPath === "/projects" ? "bg-orange-300" : ""} link="/" link="/projects" icon="nav/projects" text="Protafolio"  />
+          <ButtonAside style={currentPath === "/contact" ? "bg-orange-300" : ""} link="/" link="/contact" icon="nav/contact" text="Contactame"  />
         </ul>
       </nav>
     </main>
 	</body>
 </html>
+
 
 <style>
   body{
@@ -89,3 +92,4 @@ const { titlePage } = Astro.props;
     font-family: 'Poppins', sans-serif;
   }
 </style>
+
