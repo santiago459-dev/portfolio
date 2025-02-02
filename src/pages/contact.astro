@@ -1,15 +1,16 @@
 ---
+import emailjs from '@emailjs/browser';
 import Layout from '../layouts/Layout.astro';
-import Title from "../components/title.astro"
-
+import Title from "../components/title.astro";
 ---
+
 <Layout>
-  <Title title="Contactame"  style="text-4xl border-b-4 border-rose-300 pb-4"/>
+  <Title title="Contáctame" style="text-4xl border-b-4 border-rose-300 pb-4"/>
   <section class="flex items-center justify-center w-full h-fit">
-    <form  class="flex flex-col gap-5 p-10 rounded-lg border-4 border-orange-200 bg-gray-50 text-gray-900 ">
+    <form class="formulario flex flex-col gap-5 p-10 rounded-lg border-4 border-orange-200 bg-gray-50 text-gray-900">
       <label>
         Nombre:
-        <input type="text" name="name" required  class="bg-gray-200"/>
+        <input type="text" name="name" required class="bg-gray-200"/>
       </label>
 
       <label>
@@ -22,40 +23,40 @@ import Title from "../components/title.astro"
         <textarea name="message" required class="bg-gray-200 min-h-30"></textarea>
       </label>
 
-      <input type="submit" name="enviar" value="Enviar" id="" class="bg-amber-200 active:bg-amber-400 cursor-pointer transition-all duration-100">
+      <input type="submit" value="Enviar" class="bg-amber-200 active:bg-amber-400 cursor-pointer transition-all duration-100">
     </form>
   </section>
 </Layout>
 
 <script>
-import emailjs from '@emailjs/browser';
-
-const form = document.querySelector(".formulario")
-
-form?.addEventListener('submit', (e)=>{
-  e.preventDefault()
-  
-  const formData = new FormData(e.target);
-  const name = formData.get("name");
-  const email = formData.get("email");
-  const message = formData.get("message");
-  
-  const templateParams = {
-    namepo :name,
-    emailpo:email,
-    messagepo:message
-  };
-
-  emailjs.send('service_317pqop', 'template_3j4vlvj', templateParams, { publicKey: 'GeELFdkPtYpwauTrX', })
-  .then( (response) => {
-      console.log('SUCCESS!', response.status, response.text);
-      console.log(response)
-    }, (err) => {
-      console.log('FAILED...', err);
-    },
-  );
-
-})
+  //document.addEventListener("DOMContentLoaded", () => {
+  //  const form = document.querySelector(".formulario");
+  //
+  //  form?.addEventListener("submit", (e) => {
+  //      e.preventDefault();
+  //
+  //    console.log()
+       //
+        //const formData = new FormData(form);
+        //const templateParams = {
+        //  namepo: formData.get("name"),
+        //  emailpo: formData.get("email"),
+        //  messagepo: formData.get("message")
+        //};
+        //
+        //console.log(emailjs)
+        //
+        //emailjs.send(
+        //  "service_317pqop",
+        //  "template_3j4vlvj",
+        //  templateParams,
+        //  "GeELFdkPtYpwauTrX"
+        //).then(
+        //  (response) => console.log("SUCCESS!", response),
+        //  (err) => console.error("FAILED...", err)
+        //);
+  //  });
+  //});
 </script>
 
 <style>

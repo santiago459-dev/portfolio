@@ -3,8 +3,10 @@ import Layout from '../layouts/Layout.astro';
 import Title from "../components/title.astro";
 import ProjectCard from "../components/projectsCard.astro"
 
+import emprendimientoImg from "../img/emprendimiento.png"
+
 const webProjects = [
-  {image:"../../global/emprendimiento.png", title:"Emprendimiento", paragraph:"El proyecto nació de una idea propuesta por mi profesora, quien me motivó a planificarlo. Sin embargo, debido a las intensivas clases, fue quedando en pausa gradualmente.", stack:["skills/languages/html", "skills/languages/css", "skills/languages/js"]}
+  {image: emprendimientoImg.src , title:"Emprendimiento", paragraph:"El proyecto nació de una idea propuesta por mi profesora, quien me motivó a planificarlo. Sin embargo, debido a las intensivas clases, fue quedando en pausa gradualmente.", stack:["skills/languages/html", "skills/languages/css", "skills/languages/js"]}
 ]
 
 const scripts = [
@@ -26,7 +28,7 @@ const scripts = [
         <div class="flex w-full h-fit">
           {webProjects.map(index => <ProjectCard styleCard="border-blue-200" frontPage={index.image} title={index.title} paragraph={index.paragraph} stack={index.stack}/>) }
         </div>
-        <Title title="Scripts" style="text-2xl" />
+        <Title title="Scripts" style="text-2xl"/>
         <div class="flex flex-wrap gap-5 w-full h-fit">
           {scripts.map(index => <ProjectCard styleCard="border-orange-200" frontPage={index.image} title={index.title} paragraph={index.paragraph} stack={index.stack} link={index.link}/>) }
         </div>

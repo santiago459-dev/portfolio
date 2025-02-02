@@ -8,11 +8,12 @@ import '@fontsource/jetbrains-mono';
 
 import "../styles/global.css"
 
-import { ClientRouter } from 'astro:transitions';
 import { Icon } from 'astro-icon/components'
+import { ClientRouter } from 'astro:transitions';
 
 import ButtonAside from "../components/button-aside.astro"
 import InformationAside from "../components/information-aside.astro"
+import IconImg from "../img/icon.webp"
 
 const { titlePage } = Astro.props;
 const currentPath =  Astro.url.pathname
@@ -44,7 +45,7 @@ const currentPath =  Astro.url.pathname
 
     <main class="flex  justify-center gap-5 w-full h-fit min-h-96">
       <aside class="relative flex justify-center items-center flex-col gap-5  pt-27 h-fit pb-5 px-10 rounded-xl bg-white">
-          <img src="../../global/icon.webp" alt="" class="absolute -top-25 w-50 h-50 rounded-xl border-2 border-gray-600 object-fit">
+        <img src={IconImg.src} alt="" class="absolute -top-25 w-50 h-50 rounded-xl border-2 border-gray-600 object-fit">
 
           <section class="flex flex-col items-center">
             <h1 class="name text-2xl tracking-wide">Juan Santiago</h1>
