@@ -20,22 +20,23 @@ const currentPath =  Astro.url.pathname
 ---
 
 
-<!doctype html> <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
+<!doctype html> 
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
     <title>{titlePage}</title>
     <ClientRouter/>
-	</head>
-	<body>
+  </head>
+  <body>
     <header class="flex justify-end w-full">
       <section class="relative flex items-center justify-center w-8 h-8">
         <Icon name="information" class="w-full h-full info-header"/>
-        <div class="absolute opacity-0 top-0 right-full mr-2 w-64 bg-white shadow-lg rounded-lg p-4 dropdown transition-all durantion-200">
+        <div class="absolute opacity-0 top-0 right-full mr-2 w-64 bg-white shadow-lg rounded-lg p-4 dropdown transition-all duration-200">
           <h3 class="w-full text-start text-lg font-semibold">En desarrollo</h3>
           <p class="w-full text-start text-sm text-gray-600">La web aún está en desarrollo.</p>
-          <ul class="text-start  text-sm text-gray-700 list-disc pl-4 mt-2 ">
+          <ul class="text-start  text-sm text-gray-700 list-disc pl-4 mt-2">
             <li>Diseño responsivo</li>
             <li>Modo oscuro</li>
           </ul>
@@ -43,57 +44,57 @@ const currentPath =  Astro.url.pathname
       </section>
     </header>
 
-    <main class="flex  justify-center gap-5 w-full h-fit min-h-96">
-      <aside class="relative flex justify-center items-center flex-col gap-5  pt-27 h-fit pb-5 px-10 rounded-xl bg-white">
+    <main class="flex flex-row justify-center gap-5 w-full h-fit main-container">
+
+      <aside class="relative flex justify-center items-center flex-col gap-5 w-fit h-fit pt-27 pb-5 px-10 rounded-xl bg-white layout-aside">
         <img src={IconImg.src} alt="" class="absolute -top-25 w-50 h-50 rounded-xl border-2 border-gray-600 object-fit">
 
-          <section class="flex flex-col items-center">
-            <h1 class="name text-2xl tracking-wide">Juan Santiago</h1>
-            <h2 class="font-sans sub-title text-xs px-2 py-1 mb-2 rounded-lg bg-gray-100 text-gray-600">Fullstack developer</h2>
-            <div class="flex justify-center gap-2 w-full">
-              <a href="https://github.com/" target="_blank">
-                <Icon class="w-6 h-6" name="logos/github" />
-              </a>
-              <a href="https://www.linkedin.com/in/el-awakatito-undefined-369201269/" target="_blank">
-                <Icon class="w-6 h-6" name="logos/linkedin" />
-              </a>
-            </div>
-          </section>
+        <section class="flex flex-col items-center">
+          <h1 class="name text-2xl tracking-wide">Juan Santiago</h1>
+          <h2 class="font-sans sub-title text-xs px-2 py-1 mb-2 rounded-lg bg-gray-100 text-gray-600">Fullstack developer</h2>
+          <div class="flex justify-center gap-2 w-full">
+            <a href="https://github.com/" target="_blank">
+              <Icon class="w-6 h-6" name="logos/github" />
+            </a>
+            <a href="https://www.linkedin.com/in/el-awakatito-undefined-369201269/" target="_blank">
+              <Icon class="w-6 h-6" name="logos/linkedin" />
+            </a>
+          </div>
+        </section>
 
-          <article class="flex flex-col gap-5 w-full h-fit p-3 bg-gray-200 rounded-xl">
-            <InformationAside iconColor="text-slate-400" icon="aside/phone" upperText="Numero telefonico" downText="+57 3235162753"/>
-            <InformationAside iconColor="text-red-400" icon="aside/email" upperText="Gmail" downText="sssantiago459@gmail.com"/>
-            <InformationAside iconColor="text-violet-400" icon="aside/birthdate" upperText="Fecha de nacimiento" downText="2007/10/16"/>
-          </article>
+        <article class="flex flex-col gap-5 w-full h-fit p-3 bg-gray-200 rounded-xl">
+          <InformationAside iconColor="text-slate-400" icon="aside/phone" upperText="Numero telefonico" downText="+57 3235162753"/>
+          <InformationAside iconColor="text-red-400" icon="aside/email" upperText="Gmail" downText="sssantiago459@gmail.com"/>
+          <InformationAside iconColor="text-violet-400" icon="aside/birthdate" upperText="Fecha de nacimiento" downText="2007/10/16"/>
+        </article>
       </aside>
 
-      <article class="flex flex-col gap-5 flex-grow-2 h-fit p-5 rounded-xl bg-white">
+      <article class="flex flex-col gap-5 flex-grow h-fit p-5 rounded-xl bg-white">
         <slot />
       </article>
 
-      <nav class="w-fit h-fit p-5 rounded-xl bg-white">
+      <nav class="w-fit h-fit p-5 rounded-xl bg-white layout-nav">
         <ul class="flex flex-col gap-3">
-          <ButtonAside style={currentPath === "/" ? "bg-orange-300" : ""} link="/" icon="nav/about" text="Acerca de mi"  />
-          <ButtonAside style={currentPath === "/resume" ? "bg-orange-300" : ""} link="/" link="/resume" icon="nav/resume" text="Resumen"  />
-          <ButtonAside style={currentPath === "/projects" ? "bg-orange-300" : ""} link="/" link="/projects" icon="nav/projects" text="Protafolio"  />
-          <ButtonAside style={currentPath === "/contact" ? "bg-orange-300" : ""} link="/" link="/contact" icon="nav/contact" text="Contactame"  />
+          <ButtonAside style={currentPath === "/" ? "bg-orange-300" : ""} link="/" icon="nav/about" text="Acerca de mi" />
+          <ButtonAside style={currentPath === "/resume" ? "bg-orange-300" : ""} link="/" link="/resume" icon="nav/resume" text="Resumen" />
+          <ButtonAside style={currentPath === "/projects" ? "bg-orange-300" : ""} link="/" link="/projects" icon="nav/projects" text="Protafolio" />
+          <ButtonAside style={currentPath === "/contact" ? "bg-orange-300" : ""} link="/" link="/contact" icon="nav/contact" text="Contactame" />
         </ul>
       </nav>
     </main>
-	</body>
+  </body>
 </html>
 
-
 <style>
-  body{
+  body {
     display: flex;
-    flex-direction:column;
+    flex-direction: column;
     align-items: center;
     gap: 15rem;
     width: 100%;
-    height: fit;
+    height: fit-content;
     padding: 4rem 12rem;
-    background-color: rgb(230,230,230);
+    background-color: rgb(230, 230, 230);
     overflow-y: auto;
     overflow-x: none;
     background: linear-gradient(135deg, #fdf4f0 15%, #f9e7e3 35%, #f5dcd5 55%, #f2d2d1 80%, #f0d1c7 100%);
@@ -103,14 +104,137 @@ const currentPath =  Astro.url.pathname
     font-family: 'Inter', sans-serif;
   }
 
-  .main-title{
+  .main-title {
     font-family: 'Poppins', sans-serif;
   }
 
   .info-header:hover + .dropdown {
-    opacity:1;
+    opacity: 1;
   }
 
+  @media (max-width: 1024px) {
+    body {
+      padding: 2rem 4rem;
+    }
 
+    .main-container {
+      flex-direction: column;
+      gap: 2rem;
+      padding: 2rem;
+    }
+
+    .layout-aside {
+      width: 100%;
+      padding: 2rem;
+    }
+
+    .name {
+      font-size: 1.5rem;
+    }
+
+    .sub-title {
+      font-size: 0.9rem;
+    }
+
+    .flex {
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .main-title {
+      font-size: 2rem;
+    }
+
+    .dropdown {
+      width: auto;
+      max-width: 90%;
+      right: 0;
+    }
+  }
+
+  @media (max-width: 768px) {
+    body {
+      padding: 1rem 2rem;
+    }
+
+    .layout-aside {
+      width: 100%;
+      padding: 1rem;
+    }
+
+    .main-container {
+      gap: 1rem;
+    }
+
+    .name {
+      font-size: 1.25rem;
+    }
+
+    .sub-title {
+      font-size: 0.8rem;
+    }
+
+    .info-header {
+      width: 6rem;
+      height: 6rem;
+    }
+
+    .dropdown {
+      width: 100%;
+      padding: 1rem;
+    }
+
+    .flex {
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .main-title {
+      font-size: 1.5rem;
+    }
+
+    .w-fit {
+      width: 100%;
+    }
+  }
+
+  @media (max-width: 480px) {
+    body {
+      padding: 1rem;
+      gap: 2rem;
+    }
+
+    .layout-aside {
+      width: 100%;
+      padding: 1rem;
+    }
+
+    .name {
+      font-size: 1.25rem;
+    }
+
+    .sub-title {
+      font-size: 0.75rem;
+    }
+
+    .flex {
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .main-container {
+      gap: 1rem;
+    }
+
+    .main-title {
+      font-size: 1.25rem;
+    }
+
+    .layout-nav{
+      justify-content: center;
+      flex-direction: row;
+      width: 100%;
+    }
+  }
 </style>
 
