@@ -4,9 +4,11 @@ import Title from "../components/title.astro";
 import ProjectCard from "../components/projectsCard.astro"
 
 import emprendimientoImg from "../img/emprendimiento.png"
+import youtube from "../img/youtube.png"
 
 const webProjects = [
-  {image: emprendimientoImg.src , title:"Emprendimiento", paragraph:"El proyecto nació de una idea propuesta por mi profesora, quien me motivó a planificarlo. Sin embargo, debido a las intensivas clases, fue quedando en pausa gradualmente.", stack:["skills/languages/html", "skills/languages/css", "skills/languages/js"]}
+{image: emprendimientoImg.src , title:"Emprendimiento", paragraph:"El proyecto nació de una idea propuesta por mi profesora, quien me motivó a planificarlo. Sin embargo, debido a las intensivas clases, fue quedando en pausa gradualmente.", stack:["skills/languages/html", "skills/languages/css", "skills/languages/js"], link:"https://emprendimiento-page.netlify.app/"},
+{image: youtube.src , title:"Youtube ui", paragraph:"Esta página es una recreación de YouTube, hecha para comprender cómo podrían estar estructuradas webs famosas y mejorar mis habilidades.", stack:["skills/languages/html", "skills/languages/css"], link:"https://emprendimiento-page.netlify.app/"}
 ]
 
 const scripts = [
@@ -25,8 +27,8 @@ const scripts = [
 
     <section class="flex flex-col gap-5 b w-full h-fit">
         <Title title="Proyectos Web" style="text-2xl" />
-        <div class="flex w-full h-fit">
-          {webProjects.map(index => <ProjectCard styleCard="border-blue-200" frontPage={index.image} title={index.title} paragraph={index.paragraph} stack={index.stack}/>) }
+        <div class="flex flex-wrap gap-5 flex w-full h-fit">
+          {webProjects.map(index => <ProjectCard styleCard="border-blue-200" frontPage={index.image} title={index.title} paragraph={index.paragraph} stack={index.stack} link={index.link}/>) }
         </div>
         <Title title="Scripts" style="text-2xl"/>
         <div class="flex flex-wrap gap-5 w-full h-fit">
